@@ -21,7 +21,7 @@
   font-size: calc(var(--heading-4-size-value) * 1rem);
   margin: 0;
   padding-bottom: 1rem;
-  border-bottom: solid 1px;
+  border-bottom: solid 1px var(--paragraphMediumColor);
 }
 
 /* --- Individual Heading Dropdown CSS --- */
@@ -74,7 +74,7 @@
 
 #contents-list .contents-inner-wrapper {
   overflow: hidden;
-  border-left: solid 1px;
+  border-left: solid 1px var(--paragraphMediumColor);
   margin-left: 0.5rem;
   margin-bottom: 0.5rem;
 }
