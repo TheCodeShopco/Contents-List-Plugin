@@ -18,7 +18,7 @@
 }
 
 #contents #contents-title {
-  font-size: calc("var(--heading-4-size-value) * 1rem");
+  font-size: calc(var(--heading-4-size-value) * 1rem);
   margin: 0;
   padding-bottom: 1rem;
   border-bottom: solid 1px;
