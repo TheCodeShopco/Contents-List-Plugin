@@ -3,7 +3,7 @@
 // Finding all headings //
 
 function findHeadings() {
-    return document.querySelectorAll('.html-block h2, .html-block h3, .html-block h4');
+    return document.querySelector('.blog-item-content').querySelectorAll('.html-block h2, .html-block h3, .html-block h4');
 };
 
 // Assigning identity (classes and ID's) to each heading //
