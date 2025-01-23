@@ -1,0 +1,41 @@
+#contents-list {
+    padding-left: 0 !important;
+  }
+  
+  #contents-list li {
+    list-style-type: none !important;
+    margin-left: 1.5rem;
+    position: relative;
+  }
+  
+  #contents-list li::marker {
+      display: none !important;
+  }
+  
+  #contents-list li .dropdown-icon {
+    position: absolute;
+    left: -1.5rem;
+    top: 0;
+    width: 1rem;
+    height: 1.3rem;
+    background: red;
+    cursor: pointer;
+  }
+  
+  #contents-list .contents-outer-wrapper {
+    overflow: hidden;
+    transition: all 300ms ease-in-out;
+    display: grid;
+  }
+  
+  #contents-list .contents-inner-wrapper {
+    overflow: hidden;
+  }
+  
+  .contents-outer-closed {
+    grid-template-rows: 0fr;
+  }
+  
+  .contents-outer-open {
+    grid-template-rows: 1fr;
+  }
