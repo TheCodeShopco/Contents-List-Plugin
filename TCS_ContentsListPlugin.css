@@ -1,41 +1,114 @@
+#contents {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
 #contents-list {
-    padding-left: 0 !important;
-  }
-  
-  #contents-list li {
-    list-style-type: none !important;
-    margin-left: 1.5rem;
-    position: relative;
-  }
-  
-  #contents-list li::marker {
-      display: none !important;
-  }
-  
-  #contents-list li .dropdown-icon {
-    position: absolute;
-    left: -1.5rem;
-    top: 0;
-    width: 1rem;
-    height: 1.3rem;
-    background: red;
-    cursor: pointer;
-  }
-  
-  #contents-list .contents-outer-wrapper {
-    overflow: hidden;
-    transition: all 300ms ease-in-out;
-    display: grid;
-  }
-  
-  #contents-list .contents-inner-wrapper {
-    overflow: hidden;
-  }
-  
-  .contents-outer-closed {
-    grid-template-rows: 0fr;
-  }
-  
-  .contents-outer-open {
-    grid-template-rows: 1fr;
-  }
+  padding-left: 0 !important;
+  margin: 0;
+  overflow: hidden;
+}
+
+#contents-list li::marker {
+	display: none !important;
+}
+
+#contents-list > :first-child {
+  margin-top: 2rem;
+}
+
+#contents #contents-title {
+  font-size: calc("var(--heading-4-size-value) * 1rem");
+  margin: 0;
+  padding-bottom: 1rem;
+  border-bottom: solid 1px;
+}
+
+/* --- Individual Heading Dropdown CSS --- */
+
+#contents-list li {
+  list-style-type: none !important;
+  margin-left: 2.5rem;
+  position: relative;
+}
+
+#contents-list > li a {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.contents-inner-wrapper ul:last-child a {
+  margin-bottom: 0 !important;
+}
+
+.contents-inner-wrapper ul:last-child .contents-inner-wrapper {
+  margin-bottom: 0 !important;
+}
+
+#contents-list li .dropdown-icon {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: -2.5rem;
+  top: 0;
+  width: 2.5rem;
+  height: var(--body-font-line-height);
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
+
+.dropdown-icon svg {
+  height: 50% !important;
+}
+
+.main-dropdown-button svg {
+  height: 75% !important;
+}
+
+#contents-list .contents-outer-wrapper {
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+  display: grid;
+}
+
+#contents-list .contents-inner-wrapper {
+  overflow: hidden;
+  border-left: solid 1px;
+  margin-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.contents-dropdown-closed {
+  grid-template-rows: 0fr;
+}
+
+.contents-dropdown-open {
+  grid-template-rows: 1fr;
+}
+
+.dropdown-icon-open {
+  transform: rotate(90deg) !important;
+}
+
+.dropdown-icon-closed {
+  transform: rotate(0deg);
+}
+
+/* --- Main Dropdown CSS --- */
+
+#contents-list-wrapper.main-dropdown-enabled {
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+  display: grid !important;
+}
+
+#contents .main-dropdown-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 2.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+  transition: all 300ms ease-in-out;
+}
