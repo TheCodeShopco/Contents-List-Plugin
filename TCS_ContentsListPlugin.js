@@ -209,13 +209,16 @@ if (document.getElementById('contents').getAttribute("data-individual-dropdowns-
 
 function addTitle() {
     let contentsBlock = document.getElementById('contents');
+    let titleWrapper = document.createElement('div');
+    titleWrapper.id = 'contents-title-wrapper';
     let title = document.createElement('h2');
     title.id = 'contents-title';
     title.innerHTML = `${contentsBlock.getAttribute("data-title-text")}`;
+    titleWrapper.appendChild(title);
     if (contentsBlock.getAttribute("data-title-text") === null) {
         title.innerHTML = 'Table of Contents';
     }
-    contentsBlock.insertBefore(title, contentsBlock.firstChild);
+    contentsBlock.insertBefore(titleWrapper, contentsBlock.firstChild);
 }
 
 // Adds the title to the contents block if the user has enabled it //
@@ -248,15 +251,19 @@ function addMainDropdown() {
         contentsListWrapper.classList.add('contents-dropdown-closed');
     }
     contentsListWrapper.classList.add('main-dropdown-enabled');
+    let titleWrapper = document.getElementById('contents-title-wrapper');
+    if (titleWrapper === null) {
     contentsBlock.appendChild(mainDropdown);
+    } else {
+        titleWrapper.appendChild(mainDropdown);
+    }
 }
 
-// Function that adds the event listener to the title, or the main dropdown button if there is no title //
+// Function that adds the event listener to the title, or the main dropdown button if there is no title, also adjusts the height of the dropdown button to match the title //
 
 function addMainDropdownListener() {
     let mainDropdown = document.querySelector('.main-dropdown-button');
-    let dropdownTitle = document.getElementById('contents-title');
-    dropdownTitle.style.cursor = "pointer";
+    let dropdownTitle = document.getElementById('contents-title-wrapper');
     if (dropdownTitle === null) {
         mainDropdown.addEventListener('click', () => {
             openDropdown(document.getElementById('contents-list-wrapper'), mainDropdown);
@@ -264,6 +271,8 @@ function addMainDropdownListener() {
     } else {
         dropdownTitle.addEventListener('click', () => {
             openDropdown(document.getElementById('contents-list-wrapper'), mainDropdown);
+            dropdownTitle.style.cursor = "pointer";
+            mainDropdown.classList.add('title-enabled');
         });
     }
 };
