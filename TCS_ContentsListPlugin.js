@@ -271,7 +271,6 @@ function addMainDropdownListener() {
     } else {
         dropdownTitle.addEventListener('click', () => {
             openDropdown(document.getElementById('contents-list-wrapper'), mainDropdown);
-            dropdownTitle.style.cursor = "pointer";
             mainDropdown.classList.add('title-enabled');
         });
     }
