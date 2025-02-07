@@ -9,6 +9,13 @@
   overflow: hidden;
 }
 
+#contents-list ul {
+  padding-left: 2rem;
+  @media(max-width:768px) {
+    padding-left: 1rem;
+  }
+}
+
 #contents-list li::marker {
 	display: none !important;
 }
@@ -35,7 +42,7 @@
 
 #contents-list li {
   list-style-type: none !important;
-  margin-left: 2.5rem;
+  margin-left: 1.5rem;
   position: relative;
 }
 
@@ -57,9 +64,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  left: -2.5rem;
+  left: -1.5rem;
   top: 0;
-  width: 2.5rem;
+  width: 1rem;
   height: var(--body-font-line-height);
   cursor: pointer;
   transition: all 300ms ease-in-out;
