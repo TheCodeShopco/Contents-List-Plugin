@@ -223,13 +223,14 @@ function addTitle() {
         title.innerHTML = 'Table of Contents';
     }
     contentsBlock.insertBefore(titleWrapper, contentsBlock.firstChild);
-    document.querySelector('#contents-list > :first-child').style.marginTop = '0 !important';
 }
 
 // Adds the title to the contents block if the user has enabled it //
 
 if (document.getElementById('contents').getAttribute("data-title-enabled") === 'true' || document.getElementById('contents').getAttribute("data-title-enabled") === null) {
     addTitle();
+} else {
+    document.querySelector('#contents-list > :first-child').style.marginTop = '0 !important';
 }
 
 // Adding the main dropdown, along with the functionality to disable them //
@@ -269,12 +270,12 @@ function addMainDropdown() {
 function addMainDropdownListener() {
     let mainDropdown = document.querySelector('.main-dropdown-button');
     let dropdownTitle = document.getElementById('contents-title-wrapper');
-    dropdownTitle.style.cursor = "pointer"
     if (dropdownTitle === null) {
         mainDropdown.addEventListener('click', () => {
             openDropdown(document.getElementById('contents-list-wrapper'), mainDropdown);
         });
     } else {
+        dropdownTitle.style.cursor = "pointer"
         dropdownTitle.addEventListener('click', () => {
             openDropdown(document.getElementById('contents-list-wrapper'), mainDropdown);
             mainDropdown.classList.add('title-enabled');
