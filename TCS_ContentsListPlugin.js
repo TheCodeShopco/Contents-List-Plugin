@@ -230,7 +230,7 @@ function addTitle() {
 if (document.getElementById('contents').getAttribute("data-title-enabled") === 'true' || document.getElementById('contents').getAttribute("data-title-enabled") === null) {
     addTitle();
 } else {
-    document.querySelector('#contents-list > :first-child').style.marginTop = '0 !important';
+    document.querySelector('#contents-list > :first-child').style.marginTop = '0px';
 }
 
 // Adding the main dropdown, along with the functionality to disable them //
