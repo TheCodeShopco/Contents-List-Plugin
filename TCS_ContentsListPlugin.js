@@ -123,6 +123,10 @@ function insertContentsList() {
     let contentsBlock = checkForCodeBlock();
     // Finding all the headings and assigning them to a variable //
     let allHeadings = findHeadings();
+    if (allHeadings.length === 0) {
+        contentsBlock.style.display = 'none';
+        return;
+    }
     // Assigning identity to all the headings //
     assignIdentity(allHeadings)
     // Generating the contents list from the list of headings and appending it to the 'contents' block //
@@ -219,6 +223,7 @@ function addTitle() {
         title.innerHTML = 'Table of Contents';
     }
     contentsBlock.insertBefore(titleWrapper, contentsBlock.firstChild);
+    document.querySelector('#contents-list > :first-child').style.marginTop = '0 !important';
 }
 
 // Adds the title to the contents block if the user has enabled it //
@@ -264,6 +269,7 @@ function addMainDropdown() {
 function addMainDropdownListener() {
     let mainDropdown = document.querySelector('.main-dropdown-button');
     let dropdownTitle = document.getElementById('contents-title-wrapper');
+    dropdownTitle.style.cursor = "pointer"
     if (dropdownTitle === null) {
         mainDropdown.addEventListener('click', () => {
             openDropdown(document.getElementById('contents-list-wrapper'), mainDropdown);
