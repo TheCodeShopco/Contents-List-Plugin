@@ -3,7 +3,12 @@
 // Finding all headings //
 
 function findHeadings() {
-    return document.querySelector('.blog-item-content').querySelectorAll('.html-block h2, .html-block h3, .html-block h4');
+    let blogItemContent = document.querySelector('.blog-item-content');
+    if (!blogItemContent) {
+        return;
+    }   else {
+            return blogItemContent.querySelectorAll('.html-block h2, .html-block h3, .html-block h4');
+        }
 };
 
 // Assigning identity (classes and ID's) to each heading //
@@ -20,9 +25,14 @@ function assignIdentity(headings) {
 function checkForCodeBlock() {
     let contentsBlock = document.getElementById('contents');
     if (!contentsBlock) {
+        let blogItemContent = document.querySelector('.blog-item-content');
+        if (blogItemContent) {
         contentsBlock = document.createElement('div');
         contentsBlock.id = 'contents';
-        document.querySelector('.blog-item-content').insertBefore(contentsBlock, document.querySelector('.blog-item-content').firstChild);
+        blogItemContent.insertBefore(contentsBlock, blogItemContent.firstChild);
+        } else {
+            return
+        }
     }
     return contentsBlock;
 }
@@ -123,9 +133,13 @@ function insertContentsList() {
     let contentsBlock = checkForCodeBlock();
     // Finding all the headings and assigning them to a variable //
     let allHeadings = findHeadings();
-    if (allHeadings.length === 0) {
-        contentsBlock.style.display = 'none';
+    if (allHeadings === undefined) {
         return;
+    } else {
+        if (allHeadings.length === 0) {
+            contentsBlock.style.display = 'none';
+            return;
+        }
     }
     // Assigning identity to all the headings //
     assignIdentity(allHeadings)
