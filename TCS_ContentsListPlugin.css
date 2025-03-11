@@ -29,7 +29,7 @@
   align-items: center;
   width: 100%;
   padding-bottom: 1rem;
-  border-bottom: solid 1px var(--paragraphMediumColor) !important;
+  border-bottom: solid 1px var(--paragraphMediumColor);
 }
 
 #contents #contents-title {
