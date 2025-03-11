@@ -24,7 +24,7 @@ function assignIdentity(headings) {
 
 function checkForCodeBlock() {
     let contentsBlock = document.getElementById('contents');
-    if (contentsBlock === 'undefined' || contentsBlock === null) {
+    if (contentsBlock === undefined || contentsBlock === null) {
         let blogItemContent = document.querySelector('.blog-item-content');
         if (blogItemContent) {
         contentsBlock = document.createElement('div');
