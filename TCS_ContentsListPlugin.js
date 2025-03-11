@@ -216,7 +216,8 @@ function addDropdownListeners() {
 
 // Adds dropdown icons if the user has enabled them, or if they haven't enabled customisation at all //
 
-if (document.getElementById('contents').getAttribute("data-individual-dropdowns-enabled") === 'true' || document.getElementById('contents').getAttribute("data-main-dropdown-enabled") === null) {
+let contentsElement = document.getElementById('contents');
+if (contentsElement && (contentsElement.getAttribute("data-individual-dropdowns-enabled") === 'true' || contentsElement.getAttribute("data-main-dropdown-enabled") === null)) {
     addDropdownIcons();
     addDropdownListeners();
 }
@@ -227,6 +228,7 @@ if (document.getElementById('contents').getAttribute("data-individual-dropdowns-
 
 function addTitle() {
     let contentsBlock = document.getElementById('contents');
+    if (!contentsBlock) return;
     let titleWrapper = document.createElement('div');
     titleWrapper.id = 'contents-title-wrapper';
     let title = document.createElement('h2');
@@ -241,9 +243,9 @@ function addTitle() {
 
 // Adds the title to the contents block if the user has enabled it //
 
-if (document.getElementById('contents').getAttribute("data-title-enabled") === 'true' || document.getElementById('contents').getAttribute("data-title-enabled") === null) {
+if (contentsElement && (contentsElement.getAttribute("data-title-enabled") === 'true' || contentsElement.getAttribute("data-title-enabled") === null)) {
     addTitle();
-} else {
+} else if (contentsElement) {
     document.querySelector('#contents-list > :first-child').style.marginTop = '0px';
 }
 
@@ -253,10 +255,11 @@ if (document.getElementById('contents').getAttribute("data-title-enabled") === '
 
 function addMainDropdown() {
     let contentsBlock = document.getElementById('contents');
+    if (!contentsBlock) return;
     let mainDropdown = document.createElement('div');
     let contentsListWrapper = document.getElementById('contents-list-wrapper');
     mainDropdown.classList.add('main-dropdown-button');
-    if (document.getElementById('contents').getAttribute("data-open-by-default") === 'true' || document.getElementById('contents').getAttribute("data-open-by-default") === null) {
+    if (contentsBlock.getAttribute("data-open-by-default") === 'true' || contentsBlock.getAttribute("data-open-by-default") === null) {
         mainDropdown.classList.add('dropdown-icon-open');
     } else {
         mainDropdown.classList.add('dropdown-icon-closed');
@@ -265,7 +268,7 @@ function addMainDropdown() {
                 <path d="M15 15L125 120L15 225" stroke="currentColor" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>`;
     mainDropdown.innerHTML = iconSVG;
-    if (document.getElementById('contents').getAttribute("data-open-by-default") === 'true' || document.getElementById('contents').getAttribute("data-open-by-default") === null) {
+    if (contentsBlock.getAttribute("data-open-by-default") === 'true' || contentsBlock.getAttribute("data-open-by-default") === null) {
         contentsListWrapper.classList.add('contents-dropdown-open');
     } else {
         contentsListWrapper.classList.add('contents-dropdown-closed');
@@ -299,7 +302,7 @@ function addMainDropdownListener() {
 
 // Adds dropdown icons if the user has enabled them, or if they haven't enabled customisation at all //
 
-if (document.getElementById('contents').getAttribute("data-main-dropdown-enabled") === 'true' || document.getElementById('contents').getAttribute("data-main-dropdown-enabled") === null) {
+if (contentsElement && (contentsElement.getAttribute("data-main-dropdown-enabled") === 'true' || contentsElement.getAttribute("data-main-dropdown-enabled") === null)) {
     addMainDropdown();
     addMainDropdownListener();
 }
